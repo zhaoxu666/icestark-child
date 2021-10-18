@@ -1,9 +1,7 @@
 import { renderNotFound, isInIcestark } from '@ice/stark-app';
 import BasicLayout from '@/layouts/BasicLayout';
 import StarkBasicLayout from '@/layouts/StarkBasicLayout';
-import Home from '@/pages/Home';
-import List from '@/pages/List';
-import Detail from '@/pages/Detail';
+
 export const constantRoutes = [
   {
     path: '/',
@@ -11,16 +9,16 @@ export const constantRoutes = [
     children: [
       { 
         path: '/', 
-        component: Home,
+        component: () => import('@/pages/Home'),
         exact: true 
       },
       { 
         path: '/list',
-        component: List
+        component: () => import('@/pages/List')
       },
       { 
         path: '/detail',
-        component: Detail
+        component: () => import('@/pages/Detail')
       },
       {
         path: '*',
